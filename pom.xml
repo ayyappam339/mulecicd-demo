@@ -40,7 +40,7 @@
 						<muleVersion>${app.runtime}</muleVersion>
 						<username>${user}</username>
 						<password>${pass}</password>
-						<applicationName>${name}</applicationName>
+						<applicationName>${project.name}</applicationName>
 						<replicas>1</replicas>
 						<vCores>1</vCores>
 						<deploymentSettings>
