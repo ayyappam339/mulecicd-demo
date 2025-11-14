@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>1833accf-7c66-4c72-811f-b2a8fbacf6b0</groupId>
+	<groupId>ad59343a-0dd5-44ca-91ec-389a00d188e2</groupId>
 	<artifactId>cicdmule-dev</artifactId>
 	<version>1.0.0</version>
 	<packaging>mule-application</packaging>
@@ -14,7 +14,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<app.runtime>4.9.0</app.runtime>
-		<mule.maven.plugin.version>4.1.1</mule.maven.plugin.version>
+		<mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
 	</properties>
 
 	<build>
@@ -22,7 +22,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
-				<version>3.1.0</version>
+				<version>3.2.0</version>
 			</plugin>
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
@@ -31,22 +31,21 @@
 				<extensions>true</extensions>
 
 				<configuration>
-					<cloudhub2Deployment>
-						<uri>https://anypoint.mulesoft.com</uri>
-						<provider>MC</provider>
-						
-    						<environment>Sandbox</environment>
-    						<target>Cloudhub-US-East-2</target>
-						<muleVersion>${app.runtime}</muleVersion>
-						<username>${user}</username>
-						<password>${pass}</password>
-						<applicationName>${project.name}</applicationName>
-						<replicas>1</replicas>
-						<vCores>0.1</vCores>
-						<deploymentSettings>
-							<generateDefaultPublicUrl>true</generateDefaultPublicUrl>
-						</deploymentSettings>
-					</cloudhub2Deployment>
+					 <cloudhub2Deployment>
+                        <uri>https://anypoint.mulesoft.com</uri>
+                        <provider>MC</provider>
+                        <environment>Sandbox</environment>
+                        <target>Cloudhub-US-East-2</target>
+                        <server>ca.anypoint.credentials</server>
+                        <applicationName>${project.artifactId}</applicationName>
+                        <releaseChannel>NONE</releaseChannel>
+                        <replicas>1</replicas>
+                        <vCores>0.1</vCores>
+						<skipDeploymentVerification>${skipDeploymentVerification}</skipDeploymentVerification>
+                        <deploymentSettings>
+                            <generateDefaultPublicUrl>true</generateDefaultPublicUrl>
+                        </deploymentSettings>
+                    </cloudhub2Deployment>
 				</configuration>
 			</plugin>
 		</plugins>
